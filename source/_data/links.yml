@@ -1,0 +1,5 @@
+# links
+Callback:
+  link: http://144.34.199.31:8081/callback/
+  avatar: /images/favatar/github-logo.png
+  desc: 专门用于产生回调信息的工具
