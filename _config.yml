@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.suiyia.com
+url: http://suiyia.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -83,11 +83,11 @@ deploy:
   branch: master
 
 
-# hexo-admin authentification
+# hexo-admin authentification  1234567890
 admin:
-  username: suiyia
-  password_hash: $2a$10$PW9.NC8tnHsqaQoOsjlxMe7GdWuvAMDAZLRHvO05KWuZlQEQuiMiq
-  secret: suiyiasuiyiasuiyia
+  username:
+  password_hash:
+  secret:
 
 # theme-apollo在归档页面显示所有文章
 # 需要上面安装的 hexo-generator-archive 插件支持
