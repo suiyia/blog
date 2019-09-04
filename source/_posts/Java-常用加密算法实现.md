@@ -1,5 +1,5 @@
 title: Java 常用加密算法实现
-author: 装睡的人
+author: Answer
 tags:
   - 加密算法
 categories:

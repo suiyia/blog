@@ -1,11 +1,11 @@
 title: Redis 简单介绍与 Jedis 常用操作
-author: caijicoder
+author: Answer
 tags:
-  - redis
+  - Redis
 categories:
-  - redis
+  - Redis
+toc: true
 date: 2019-02-18 21:02:00
-toc: true 
 ---
 
 ### 介绍
