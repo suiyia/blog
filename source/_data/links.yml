@@ -1,5 +1,10 @@
 # links
 Callback:
-  link: http://144.34.199.31:8081/callback/
+  link: http://144.34.199.31/callback/callback.html
   avatar: /images/favatar/github-logo.png
-  desc: 专门用于产生回调信息的工具
+  desc: 请求什么返回什么，回调专用
+
+BT 搜索:
+  link: http://144.34.199.31/bt
+  avatar: /images/favatar/bt.jpg
+  desc: 开源的 BT 搜索引擎

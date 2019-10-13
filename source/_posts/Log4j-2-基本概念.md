@@ -1,30 +1,40 @@
-title: Log4j 2 基本概念
+title: 日志框架学习及Log4j 2 概念整理
 author: Answer
 tags:
   - Log4j
-categories:
-  - 日志
+categories: []
 date: 2019-09-04 14:52:00
 ---
 # 日志框架分类
 
-日志框架按照功能可以分为日志接口、日志实现两部分。
+日志框架按照功能可以分为日志**接口**、日志**实现**两部分。
 
 编写程序时，推荐使用**日志接口**的 API 进行方法调用，然后使用对应的**日志实现框架**打印日志。
 
-- 日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。
-    - [Apache Commons Logging Component](https://commons.apache.org/proper/commons-logging/)，2014 年之后文档没有再更新
+常用日志框架的使用方式为： Log4j2-api（接口） + Log4j2-core（实现）。SLF4J（接口）+ 其它日志框架实现。  
 
-    - [SLF4J（Simple Logging Facade for Java）](https://www.slf4j.org/)
+- 日志接口，日志的接口规范，它对用户提供了统一的日志接口，屏蔽了不同日志组件的差异。
+
+    - [Apache Commons Logging Component](https://commons.apache.org/proper/commons-logging/)，2014 年之后文档没有再更新
+
+    - [SLF4J（Simple Logging Facade for Java）](https://www.slf4j.org/)，定义了各种日志框架（java.util.logging, logback, log4j 等）的**抽象**，是 Java 日志输出的标准接口。需引入 slf4j-api-xxx.jar
+    
+        - slf4j-api 不同版本是互相兼容的，不同系统之间的 slf4j-api 版本不同并不会造成冲突；但是其实现类是可能存在冲突的，例如使用 slf4j-api-1.0.jar 和 slf4j-simple-1.0.jar 是没有问题的，但是使用 slf4j-simple-2.0.jar 可能存在问题。在引入相关依赖的时候，要保证 slf4j-api 的版本和其实现日志框架的版本一致！
+         
+    - [Log4J2 api](https://logging.apache.org/log4j/2.x/)，log4j 2-api 包和 slf4J 类似，定义日志输出接口规范，具体日志输出形式根据依赖的日志实现 jar 包确定
 
 - 日志实现，定义具体日志打印内容
-    - JDKLog，java.util.logging.Logger
+
+    - JDKLog，java.util.logging.Logger，jdk 自带的日志工具类，它通过 getLogger 获取日志对象、setLevel 定义日志级别、Handler 定义日志输出方式 （输出到文件、控制台、网络流）、Formatter 定义日志输出样式。需引入 slf4j-jdk14-xxx.jar
+    
+    - [LOGBack](https://logback.qos.ch/)，继承于 Log4J，官网表示它可作为 log4j 的 successor（继承者），比 log4j 更好！它包括 3 个模块：
+		- logback-core，下面两个模块的基础依赖
+  		- logback-classic，对 log4j 进行了显著地改进，实现了 SLF4J API，方便随时切换日志框架。
+  		- logback-access，与 Servlet 容器（Tomcat、Jetty）进行集成，提供 HTTP 访问日志功能。
     
     - [Log4J](http://logging.apache.org/log4j/1.2/)，2015 年开始已经停止维护
 
-    - [LOGBack](https://logback.qos.ch/)，继承于 Log4J
-    
-    - [Log4J2](https://logging.apache.org/log4j/2.x/) Log4J 升级版，2019-08-06 版本更新至 2.12.1，API 相关用法不兼容 1.X 版本
+    - [Log4J2 core](https://logging.apache.org/log4j/2.x/) Log4J 升级版，2019-08-06 版本更新至 2.12.1，API 相关用法不兼容 1.X 版本
 
 
 # Log4j 2 内置概念
@@ -80,7 +90,8 @@ Console Out：
     - TimeFilter，根据某个时间点、时间段进行过滤
 
 
-# 3. Java API 用法
+# 3. Log4J 2 Java API 用法
+
 - Flow Tracing
 
 	日志跟踪
